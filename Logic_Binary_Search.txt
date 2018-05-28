@@ -1,0 +1,39 @@
+declaration:
+node *indextoaddress(int);
+void bsearchll(int,int,int);
+
+definition:
+node List::*indextoaddress(int i)
+{
+	node *hand;
+	hand=start;
+	for(int j=0;j<i;j++)
+		hand=hand->next;
+	return hand;
+}
+
+void List::bsearchll(int n,int i,int j)
+{
+	node *lower,*upper;
+	lower=indextoaddress(i);
+	upper=indextoaddress(j);
+	if(i==j)
+	{
+		if(lower->data==n)
+			cout<<"Index of Number is "<<i<<endl;
+		else
+			cout<<"Number does not exit in the Linked List"<<endl;
+			
+	}
+	
+	else
+	{
+		int mid=(i+j)/2;
+		node *middle;
+		middle=indextoaddress(mid-1);
+		if(n<(middle->data))
+			bsearchll(n,i,mid-1);
+		else
+			bsearchll(n,mid+1,j);
+	}
+}

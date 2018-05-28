@@ -1,0 +1,24 @@
+Declaration
+void lsearchll(int);
+Definition
+void List::lsearchll(int x)
+{
+	int t=0;
+	int i=1;
+	node *head;
+	head=start;
+	while(head!=NULL)
+	{
+		if(head->data==x)
+		{
+			cout<<"Search Number Index is "<<i<<endl;
+			t=1;
+		}
+		
+		i++;
+		head=head->next;
+	}
+	
+	if(t==0)
+		cout<<"Number does not exist in List"<<endl;
+}

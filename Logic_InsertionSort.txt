@@ -1,0 +1,17 @@
+Declaration:
+void isortll();
+
+void List::isortll()
+{
+	node *first,*second;
+	for(int i=0;i<listcount-1;i++)
+		for(int j=i+1;j<listcount;j++)
+			{
+				first=indextoaddress(i);
+				second=indextoaddress(j);
+				if((first->data)>(second->data))
+				swapll(first,second);
+			}
+	cout<<endl<<"List after Insertion Sort Operation"<<endl;
+	display();
+}

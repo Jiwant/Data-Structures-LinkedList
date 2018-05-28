@@ -1,0 +1,61 @@
+declaration
+void deleteNodes();
+void deleteNodem(int);
+void deleteNodee();
+void deleteNode();
+
+void List::deleteNodes()
+{
+ hand=start;
+ start=start->next;
+ hand->next=NULL;
+ delete hand;
+ --listcount;
+}
+
+void List::deleteNodem(int i)
+{
+	node *hand,*end;
+	hand=start;
+	for(int j=0;j<i-2;j++)
+	 hand=hand->next;
+	end=hand->next;
+	hand->next=hand->next->next;
+	end->next=NULL;
+	delete end;
+	--listcount;
+}
+
+void List::deleteNodee()
+{
+	node *hand,*end;
+	hand=start;
+	while(hand->next->next=NULL)
+	{
+		hand=hand->next;
+	}
+	end=hand->next;
+	end->next=NULL;
+	delete end;
+	hand->next=NULL;
+	--listcount;
+}
+
+void List::deleteNode()
+{
+	int i;
+	cout<<"Enter the Position from where you want to delete Node"<<endl;
+	cin>>i;
+	if(i>0&&i<=listcount)
+	{
+	  if(i==1)
+		deleteNodes();
+	 else if(i>1&&i<n)
+		deleteNodem(i);
+	 else
+		deleteNodee();
+    }
+    
+    else
+      cout<<"Entered Position is Invalid"<<endl<<"Enter a Valid Position"<<endl;
+}

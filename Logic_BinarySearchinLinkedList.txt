@@ -1,0 +1,42 @@
+Declaration//
+node* List::indextoaddress(int);
+void List::bsearhll(int,int,int);
+
+Definition//
+node* List::indextoaddress(int i)
+{
+	node *hand;
+	hand=start;
+	for(int j=0;j<i-1;j++)
+		hand=hand->next;
+	return hand;
+}
+
+void List::bsearchll(int n,int l,int u)
+{
+	node *lower,*upper;
+	lower=indextoaddress(l);
+	upper=indextoaddress(u);
+	if(l==u)
+	{
+		if(lower->data!=n)
+		cout<<"Number dont exist in the Array List"<<endl;
+		else
+		cout<<"Position of Element "<<u+1<<endl;
+	}
+	if((lower->data)!=(upper->data))
+	{
+		int mid=(l+u)/2;
+		node *middle;
+		middle=indextoaddress(mid);
+		if(n==(middle->data))
+			bsearch(n,mid,mid);
+		else
+		{
+			if(n<(middle->data)) 
+				bsearch(n,l,mid-1);
+			else
+				bsearch(n,mid+1,u);
+		 }
+	}
+}

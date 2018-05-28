@@ -1,0 +1,9 @@
+Declaration
+node* indextoaddress(int);
+void bsortll();
+
+Definition
+void List::bsortll()
+{
+	
+}

@@ -1,0 +1,22 @@
+
+
+class List
+{
+	private:
+	node *start;
+	int listcount;
+	
+	public:
+		List();
+		void status();
+		void display();
+		int countL();
+		void inserts(int);
+		void insertm(int,int);
+		void inserte(int);
+		void insert();
+		void deleteNodes();
+		void deleteNodem(int);
+		void deleteNodee();
+		void deleteNode();
+};

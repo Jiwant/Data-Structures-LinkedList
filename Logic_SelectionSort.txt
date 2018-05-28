@@ -1,0 +1,14 @@
+void List::ssort()
+{
+	node *first,*second;
+	for(int i=0;i<listcount-1;i++)
+		for(int j=i+1;j<listcount;j++)
+			{
+				first=indextoaddress(i);
+				second=indextoaddress(j);
+				if((first->data)>(second->data))
+					swap(first,second);
+			}
+	cout<<endl<<"Array after Bubble Sort Operation"<<endl;
+	display();
+}

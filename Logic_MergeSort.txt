@@ -1,0 +1,76 @@
+declaration:
+void mergell(int,int,int);
+void mergesortll(int,int);
+
+
+
+void List::mergell(int l,int mid,int u)
+{
+	node *hand;
+	hand=new node;
+	hand->next=NULL;
+	int i=l,
+	j=mid+1;
+	int n=u-l+1;
+	int k=0;
+	int *brr=new int[n];
+	while(i<=mid||j<=u)
+	{
+		if(i>mid||j>u)					
+		 {
+		 	if(i>mid&&j<=u)
+		 	 {
+				hand=indextoaddress(j);
+				brr[k++]=hand->data;
+				j++;
+			 }
+		 	else if(i<=mid&&j>u)
+		 	 {
+				hand=indextoaddress(i);
+				brr[k++]=hand->data;
+				i++;
+			 }
+		 }
+		else
+		 {
+		    node *first,*second;
+			first=indextoaddress(i);
+			second=indextoaddress(j);
+			if((first->data)<(second->data))
+		     {
+				hand=indextoaddress(i);
+				brr[k++]=hand->data;
+				i++;
+			 }
+		    else
+		     {
+				hand=indextoaddress(j);
+				brr[k++]=hand->data;
+				j++;
+			 }
+	     }
+    }
+        
+		for(int k=0;k<n;k++)
+		 {
+			hand=indextoaddress(l+k);
+			hand->data=brr[k];
+		 }
+		
+		
+	
+}
+
+void List::mergesortll(int i,int j)
+{
+	if(i==j)
+	 int pqr=1;
+	
+	else
+	{
+		int mid=(i+j)/2;
+		mergesortll(i,mid);
+		mergesortll(mid+1,j);
+		mergell(i,mid,j);
+	}
+}
